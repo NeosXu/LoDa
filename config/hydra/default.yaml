@@ -1,0 +1,12 @@
+# https://hydra.cc/docs/configure_hydra/intro/
+
+# enable color logging
+defaults:
+  - override job_logging: custom
+  - override hydra_logging: colorlog
+
+# output directory, generated dynamically on each run
+run:
+  dir: ${working_dir}/outputs/${name}-${now:%Y-%m-%d_%H-%M-%S}
+job:
+  chdir: false

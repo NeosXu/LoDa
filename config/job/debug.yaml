@@ -1,0 +1,34 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - /dist: single_gpu
+  - /model: loda
+  - /data: koniq10k
+  - /optimizer: adamW
+  - /scheduler: cosineAnnealingLR
+  - /loss: default
+  - /log: debug
+  - /load: scratch
+
+# job general configs
+project_name: loda
+name: loda_koniq10k_debug
+run_group: debug
+working_dir: runs/${run_group}/${name}
+random_seed: 3407
+train_test_num: 1
+num_epoch: 10
+split_index: 0
+
+# training configs
+train:
+  patch_num: 3
+  batch_size: 16
+  num_workers: 2
+
+# test configs
+test:
+  patch_num: 15
+  batch_size: 16
+  num_workers: 2

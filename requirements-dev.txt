@@ -1,0 +1,6 @@
+autopep8
+flake8
+pre-commit
+black
+isort
+pytest

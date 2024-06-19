@@ -1,0 +1,26 @@
+model_name: loda
+basic_model_name: vit_base_patch16_224.augreg2_in21k_ft_in1k
+basic_model_pretrained: true
+hyper_vit:
+  dropout_rate: 0.1
+vit_param:
+  img_size: 224
+  patch_size: 16
+  embed_dim: 768
+  depth: 12
+  qkv_bias: true
+  num_heads: 12
+  num_classes: 1000
+learner_param:
+  num_classes: 1
+  embed_dim: ${model.vit_param.embed_dim}
+  feature_channels: [256, 512, 1024, 2048]
+  cnn_feature_num: 4
+  interaction_block_num: ${model.vit_param.depth}
+  latent_dim: 64
+  grid_size: 7
+  cross_attn_num_heads: 4
+feature_model:
+  name: resnet50
+  load_timm_model: true
+  out_indices: [1, 2, 3, 4]

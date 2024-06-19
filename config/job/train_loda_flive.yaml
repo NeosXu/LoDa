@@ -1,0 +1,34 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - /dist: single_gpu
+  - /model: loda
+  - /data: flive
+  - /optimizer: adamW
+  - /scheduler: cosineAnnealingLR
+  - /loss: default
+  - /log: train
+  - /load: scratch
+
+# job general configs
+project_name: loda
+name: loda_flive_train_split${split_index}
+run_group: loda_benchmark_flive
+working_dir: runs/${run_group}/${name}
+random_seed: 3407
+train_test_num: 1
+num_epoch: 10
+split_index: 0
+
+# training configs
+train:
+  patch_num: 1
+  batch_size: 128
+  num_workers: 10
+
+# test configs
+test:
+  patch_num: 15
+  batch_size: 512
+  num_workers: 10

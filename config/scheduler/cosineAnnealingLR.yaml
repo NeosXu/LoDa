@@ -1,0 +1,4 @@
+name: CosineAnnealingLR
+param:
+  T_max: ${eval:'${data.train_data_num} * ${train.patch_num} * ${num_epoch} // (${train.batch_size} * ${dist.device_num})'}
+  eta_min: 0

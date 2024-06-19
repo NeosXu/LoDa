@@ -1,0 +1,3 @@
+device: cpu
+# if device is cpu, device num can only set to 1 now
+device_num: 1

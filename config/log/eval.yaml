@@ -1,0 +1,10 @@
+chkpt_dir: ${working_dir}/chkpt_dir
+summary_interval: 1
+net_chkpt_interval: 1
+train_chkpt_interval: 1
+
+# wandb settings
+use_wandb: false
+
+# tensorboard settings
+use_tensorboard: false

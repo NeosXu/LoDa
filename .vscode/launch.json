@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "trainer",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/trainer.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "job=debug",
+                "hydra.job_logging.handlers.file.filename=logs/debug.log",
+                "hydra.verbose=true",
+            ]
+        },
+        {
+            "name": "eval",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/eval.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "job=eval",
+                "hydra.job_logging.handlers.file.filename=logs/eval.log",
+                "hydra.verbose=true",
+                "data=koniq10k", 
+                "load.network_chkpt_path=runs/debug/loda_koniq10k_debug/chkpt_dir/loda_koniq10k_debug_1510.pt", 
+                "split_index=0", 
+            ]
+        },
+    ]
+}

@@ -1,0 +1,17 @@
+chkpt_dir: ${working_dir}/chkpt_dir
+summary_interval: 1
+net_chkpt_interval: 1
+train_chkpt_interval: 1
+
+# wandb settings
+use_wandb: true
+wandb_save_model: false
+wandb_init_conf:
+  project: ${project_name}
+  name: ${name}
+  entity: ${oc.env:WANDB_INIT_ENTITY}
+  mode: offline
+  save_code: true
+
+# tensorboard settings
+use_tensorboard: false

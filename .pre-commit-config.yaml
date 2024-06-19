@@ -1,0 +1,60 @@
+repos:
+  - repo: https://github.com:/pre-commit/pre-commit-hooks
+  # if there is network issue
+  # - repo: git@github.com:/pre-commit/pre-commit-hooks.git
+  # if there is no github ssh
+  # - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com:/PyCQA/autoflake
+    rev: v2.2.0
+    hooks:
+      - id: autoflake
+
+  - repo: https://github.com:/psf/black
+    rev: 23.7.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com:/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com:/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  # shell scripts linter
+  - repo: https://github.com:/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
+
+  # jupyter notebook cell output clearing
+  - repo: https://github.com:/kynan/nbstripout
+    rev: 0.6.1
+    hooks:
+      - id: nbstripout
+
+  # jupyter notebook linting
+  - repo: https://github.com:/nbQA-dev/nbQA
+    rev: 1.7.0
+    hooks:
+      - id: nbqa-black
+        args: ["--line-length=99"]
+      - id: nbqa-isort
+        args: ["--profile=black"]
+      - id: nbqa-flake8
+        args:
+          [
+            "--extend-ignore=E203,E402,E501,F401,F841",
+            "--exclude=logs/*,data/*",
+          ]

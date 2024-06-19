@@ -1,0 +1,7 @@
+device: cuda
+# gpus is the number that you want to use with DDP (gpus value is used at world_size in DDP).
+# Not using DDP when gpus is 0, using all gpus when gpus is -1.
+gpus: 0
+# device num is the number of gpu used
+# the purpose of using it is gpus will sometimes be 0 or -1, it is not the exact number of device
+device_num: 1
